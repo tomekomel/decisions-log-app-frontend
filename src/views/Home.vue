@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <h1>Hero title</h1>
+
     <div class="hero bg-gray">
       <div class="hero-body">
         <h1>Hero title</h1>
