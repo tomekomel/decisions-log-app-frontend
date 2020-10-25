@@ -1,35 +1,81 @@
 <template>
-  <div class="home">
-    <h1>Hero title</h1>
-
-    <div class="hero bg-gray">
-      <div class="hero-body">
-        <h1>Hero title</h1>
-        <p>This is a hero example</p>
+  <div class="container-fluid">
+    <div class="text-center">
+      <h1>Decision Log <span>ver. 1.0</span></h1>
+      <p>Built with Nest.js, Vue.js and MongoDB</p>
+      <div v-if="decisions.length === 0">
+        <h2>No decisions found at the moment</h2>
       </div>
     </div>
 
-    <div class="empty">
-      <div class="empty-icon">
-        <i class="icon icon-people"></i>
-      </div>
-      <p class="empty-title h5">You have no new messages</p>
-      <p class="empty-subtitle">Click the button to start a conversation.</p>
-      <div class="empty-action">
-        <button class="btn btn-primary">Send a message</button>
-      </div>
+    <div class="">
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="customer in decisions" :key="customer._id">
+            <td>{{ customer.first_name }}</td>
+            <td>{{ customer.last_name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.description }}</td>
+            <td>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="margin-bottom: 20px;">
+                  <router-link
+                    :to="{ name: 'Edit', params: { id: customer._id } }"
+                    class="btn btn-sm btn-outline-secondary"
+                    >Edit Customer
+                  </router-link>
+                  <button
+                    class="btn btn-sm btn-outline-secondary"
+                    v-on:click="deleteDecision(customer._id)"
+                  >
+                    Delete Customer
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
-@Component({
-  components: {
-    HelloWorld
+<script>
+import { server } from "@/helper";
+import axios from "axios";
+export default {
+  data() {
+    return {
+      decisions: []
+    };
+  },
+  created() {
+    this.getDecisions();
+  },
+  methods: {
+    getDecisions() {
+      axios
+        .get(`${server.baseURL}/decisions`)
+        .then(data => (this.decisions = data.data));
+    },
+    deleteDecision(id) {
+      axios.delete(`${server.baseURL}/decisions/${id}`).then(data => {
+        console.log(data);
+        window.location.reload();
+      });
+    }
   }
-})
-export default class Home extends Vue {}
+};
 </script>

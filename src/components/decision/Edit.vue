@@ -66,7 +66,7 @@
         </div>
         <div class="form-group">
           <div class="col-3 col-sm-12">
-            <label class="form-label" for="type">Date</label>
+            <label class="form-label" for="date">Date</label>
           </div>
           <div class="col-9 col-sm-12">
             <input
@@ -99,12 +99,13 @@ import router from "../../router";
 export default {
   data() {
     return {
-      title: "",
-      reasons: "",
-      author: "",
-      type: "",
-      date: "",
+      id: 0,
+      decision: {}
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    this.getDecision();
   },
   methods: {
     editDecision() {
@@ -115,12 +116,22 @@ export default {
         type: this.decision.type,
         date: this.decision.date
       };
-      this.__submitToServer(decisionData);
+      axios
+        .put(
+          `${server.baseURL}/decisions/update?decisionId=${this.id}`,
+          decisionData
+        )
+        .then(data => {
+          router.push({ name: "home" });
+        });
     },
-    __submitToServer(data) {
-      axios.post(`${server.baseURL}/decisions/create`, data).then(data => {
-        router.push({ name: "home" });
-      });
+    getDecision() {
+      axios
+        .get(`${server.baseURL}/decisions/${this.id}`)
+        .then(data => (this.decision = data.data));
+    },
+    navigate() {
+      router.go(-1);
     }
   }
 };
