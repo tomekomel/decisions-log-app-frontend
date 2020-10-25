@@ -4,9 +4,9 @@
       <h1>Create New Decision</h1>
 
       <form
-          id="create-decision-form"
-          class="form-horizontal"
-          @submit.prevent="createDecision"
+        id="create-decision-form"
+        class="form-horizontal"
+        @submit.prevent="createDecision"
       >
         <div class="form-group">
           <div class="col-3 col-sm-12">
@@ -14,11 +14,11 @@
           </div>
           <div class="col-9 col-sm-12">
             <input
-                class="form-input"
-                type="text"
-                id="title"
-                v-model="title"
-                placeholder="Name your decision"
+              class="form-input"
+              type="text"
+              id="title"
+              v-model="title"
+              placeholder="Name your decision"
             />
           </div>
         </div>
@@ -28,11 +28,11 @@
           </div>
           <div class="col-9 col-sm-12">
             <textarea
-                class="form-input"
-                id="reasons"
-                v-model="reasons"
-                placeholder="Reasons"
-                rows="3"
+              class="form-input"
+              id="reasons"
+              v-model="reasons"
+              placeholder="Reasons"
+              rows="3"
             ></textarea>
           </div>
         </div>
@@ -42,11 +42,11 @@
           </div>
           <div class="col-9 col-sm-12">
             <input
-                class="form-input"
-                type="text"
-                id="author"
-                v-model="author"
-                placeholder="Author"
+              class="form-input"
+              type="text"
+              id="author"
+              v-model="author"
+              placeholder="Author"
             />
           </div>
         </div>
@@ -56,11 +56,11 @@
           </div>
           <div class="col-9 col-sm-12">
             <input
-                class="form-input"
-                type="text"
-                id="type"
-                v-model="type"
-                placeholder="Type of decision"
+              class="form-input"
+              type="text"
+              id="type"
+              v-model="type"
+              placeholder="Type of decision"
             />
           </div>
         </div>
@@ -70,11 +70,11 @@
           </div>
           <div class="col-9 col-sm-12">
             <input
-                class="form-input"
-                type="text"
-                id="date"
-                v-model="date"
-                placeholder="Date"
+              class="form-input"
+              type="text"
+              id="date"
+              v-model="date"
+              placeholder="Date"
             />
           </div>
         </div>
@@ -103,7 +103,7 @@ export default {
       reasons: "",
       author: "",
       type: "",
-      date: "",
+      date: ""
     };
   },
   methods: {
