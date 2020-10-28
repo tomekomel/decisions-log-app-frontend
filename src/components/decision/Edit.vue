@@ -118,7 +118,7 @@ export default {
       };
       axios
         .put(
-          `${server.baseURL}/decisions/update?decisionId=${this.id}`,
+          `${server.baseUrl}/decisions/update?decisionId=${this.id}`,
           decisionData
         )
         .then(data => {
@@ -127,7 +127,7 @@ export default {
     },
     getDecision() {
       axios
-        .get(`${server.baseURL}/decisions/${this.id}`)
+        .get(`${server.baseUrl}/decisions/${this.id}`)
         .then(data => (this.decision = data.data));
     },
     navigate() {

@@ -118,7 +118,7 @@ export default {
       this.__submitToServer(decisionData);
     },
     __submitToServer(data) {
-      axios.post(`${server.baseURL}/decisions/create`, data).then(data => {
+      axios.post(`${server.baseUrl}/decisions/create`, data).then(data => {
         router.push({ name: "home" });
       });
     }

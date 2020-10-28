@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
-import CreateComponent from '@/components/decision/Create.vue';
+import HomeComponent from "../views/Home.vue";
+import CreateComponent from "@/components/decision/Create.vue";
+import EditComponent from "@/components/decision/Edit.vue";
 
 Vue.use(VueRouter);
 
@@ -9,14 +10,14 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: HomeComponent
   },
-  { path: '/create', name: 'Create', component: CreateComponent },
+  { path: "/create", name: "Create", component: CreateComponent },
+  { path: "/edit/:id", name: "Edit", component: EditComponent }
 ];
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
   routes
 });
 
