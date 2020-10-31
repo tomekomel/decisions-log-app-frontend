@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <div class="text-center">
       <h1>Decision Log <span>ver. 1.0</span></h1>
-      <p>Built with Nest.js, Vue.js and MongoDB</p>
       <div v-if="decisions.length === 0">
         <h2>No decisions found at the moment</h2>
       </div>
@@ -31,13 +30,13 @@
                   <router-link
                     :to="{ name: 'Edit', params: { id: decision._id } }"
                     class="btn btn-sm btn-outline-secondary"
-                    >Edit
+                    ><i class="icon icon-edit"></i>
                   </router-link>
                   <button
                     class="btn btn-sm btn-outline-secondary"
                     v-on:click="deleteDecision(decision._id)"
                   >
-                    Delete
+                    <i class="icon icon-delete"></i>
                   </button>
                 </div>
               </div>
@@ -45,6 +44,11 @@
           </tr>
         </tbody>
       </table>
+      <br />
+      <router-link to="/create"
+        ><button class="btn btn-action btn-sm btn-outline-secondary">
+          <i class="icon icon-plus"></i></button
+      ></router-link>
     </div>
   </div>
 </template>
