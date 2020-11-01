@@ -71,10 +71,13 @@
           <div class="col-9 col-sm-12">
             <input
               class="form-input"
-              type="text"
+              type="date"
               id="date"
               v-model="decision.date"
-              placeholder="Date"
+              placeholder="dd-mm-yyyy"
+              value=""
+              min="1997-01-01"
+              max="2030-12-31"
             />
           </div>
         </div>
@@ -117,10 +120,7 @@ export default {
         date: this.decision.date
       };
       axios
-        .post(
-          `${server.baseUrl}/decisions/${this.id}/update`,
-          decisionData
-        )
+        .post(`${server.baseUrl}/decisions/${this.id}/update`, decisionData)
         .then(data => {
           router.push({ name: "Home" });
         });

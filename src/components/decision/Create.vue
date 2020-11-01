@@ -71,7 +71,7 @@
           <div class="col-9 col-sm-12">
             <input
               class="form-input"
-              type="text"
+              type="date"
               id="date"
               v-model="date"
               placeholder="Date"
