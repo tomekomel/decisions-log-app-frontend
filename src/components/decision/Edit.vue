@@ -117,12 +117,12 @@ export default {
         date: this.decision.date
       };
       axios
-        .put(
-          `${server.baseUrl}/decisions/update?decisionId=${this.id}`,
+        .post(
+          `${server.baseUrl}/decisions/${this.id}/update`,
           decisionData
         )
         .then(data => {
-          router.push({ name: "home" });
+          router.push({ name: "Home" });
         });
     },
     getDecision() {
