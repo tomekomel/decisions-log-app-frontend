@@ -19,6 +19,7 @@
               id="title"
               v-model="title"
               placeholder="Name your decision"
+              required
             />
           </div>
         </div>
@@ -33,6 +34,7 @@
               v-model="reasons"
               placeholder="Reasons"
               rows="3"
+              required
             ></textarea>
           </div>
         </div>
@@ -47,6 +49,7 @@
               id="author"
               v-model="author"
               placeholder="Author"
+              required
             />
           </div>
         </div>
@@ -61,6 +64,7 @@
               id="type"
               v-model="type"
               placeholder="Type of decision"
+              required
             />
           </div>
         </div>
@@ -75,6 +79,7 @@
               id="date"
               v-model="date"
               placeholder="Date"
+              required
             />
           </div>
         </div>
