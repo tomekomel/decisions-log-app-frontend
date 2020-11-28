@@ -1,3 +1,3 @@
 export const server = {
-  baseUrl: "http://localhost:3000"
+  baseUrl: "https://my-decision-log.oa.r.appspot.com/"
 }
