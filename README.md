@@ -1,5 +1,8 @@
 # decisions-log-app-frontend
 
+Decision Log is micro app using Vue on frontend and NestJS with MongoDB on backend.
+
+
 ## Project setup
 ```
 npm install
@@ -15,10 +18,6 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+#### Deployed app:
+https://frosty-einstein-044678.netlify.app/
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
